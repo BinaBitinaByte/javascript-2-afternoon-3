@@ -27,7 +27,9 @@
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
-// Code Here 
+function first(arr, callback){
+  callback(arr[0]);
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -84,7 +86,15 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+function contains(arr,str,cb){
+  for(i=0; i < arr.length; i++){
+    if(arr[i]=== str){
+      cb(true);
+    } else{
+      cb(false);
+    }
+  }
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -105,7 +115,25 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+/*function uniq(arr,cb){
+  let newArr = [new Set(arr)];
+  cb(newArr);
+}*/
+
+/*
+let x = (names) => names.filter((v,i))
+*/
+
+function uniq(arr,cb){
+  let newArr =[]; //new modified arr
+  arr.forEach(function(i){ //for each name in arr 
+    if(!newArr[i]){        //if the current element in newarr is not equal to current element
+    arr.splice(i,1);
+  }
+});
+
+cb(arr);
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
