@@ -50,6 +50,9 @@ first(names, function(firstName){
 */
 
 //Code Here
+function last(arr, cb){
+  cb(arr[arr.length - 1]);
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -68,6 +71,9 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply(num1, num2, cb){
+  cb(num1 * num2);
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -125,15 +131,12 @@ let x = (names) => names.filter((v,i))
 */
 
 function uniq(arr,cb){
-  let newArr =[]; //new modified arr
-  arr.forEach(function(i){ //for each name in arr 
-    if(!newArr[i]){        //if the current element in newarr is not equal to current element
-    arr.splice(i,1);
-  }
-});
+  let newArr = arr.filter(function(e, i, arr){
+    return arr.indexOf(e) == i});
+  cb(newArr)  }; //new modified arr
+ 
 
-cb(arr);
-}
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -151,6 +154,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+function each( arr, cb){
+  for (let i = 0; i < arr.length; i++){
+    cb(arr[i], i);
+  }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -168,6 +176,13 @@ each(names, function(item, indice){
 */
 
 // Code here
+function getUserById(arr, i, cb){
+  for(let i = 0; i < arr.length; i++){
+    if(i=== arr[i].i){
+      cb(arr[i]);
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
