@@ -93,8 +93,8 @@ multiply(4, 3, function(answer){
 */
 
 function contains(arr,str,cb){
-  for(i=0; i < arr.length; i++){
-    if(arr[i]=== str){
+  for(let i=0; i < arr.length; i++){
+    if(arr.includes(str)){
       cb(true);
     } else{
       cb(false);
@@ -130,10 +130,17 @@ contains(names, 'Colt', function(result){
 let x = (names) => names.filter((v,i))
 */
 
-function uniq(arr,cb){
-  let newArr = arr.filter(function(e, i, arr){
-    return arr.indexOf(e) == i});
-  cb(newArr)  }; //new modified arr
+function uniq(names,callback){
+  for( let i = 0; i < names.length; i++){
+    for (let k = i +1; k < names.length; k++){
+      if(names[i]=== names[k]){
+        names.splice(k, 1)
+      }
+    }
+  }
+  callback(names);
+}
+
  
 
 
@@ -176,10 +183,10 @@ each(names, function(item, indice){
 */
 
 // Code here
-function getUserById(arr, i, cb){
+function getUserById(arr, id, cb){
   for(let i = 0; i < arr.length; i++){
-    if(i=== arr[i].i){
-      cb(arr[i]);
+    if(id === arr[i].id){
+      return cb(arr[i]);
     }
   }
 }
